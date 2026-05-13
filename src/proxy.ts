@@ -4,8 +4,9 @@ const isPublicRoute = createRouteMatcher(['/sign-in(.*)', '/sign-up(.*)']);
 const isOrgSelectionRoute = createRouteMatcher(['/org-selection(.*)']);
 
 export default clerkMiddleware(async (auth, req) => {
-  const { userId, orgId } = await(req);
-  if (!isPublicRoute(req)) {
+  const { userId, orgId } = await auth();
+  
+  if (isPublicRoute(req)) {
     return NextResponse.next();
   }
   if(!userId){
