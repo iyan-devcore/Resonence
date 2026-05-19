@@ -29,6 +29,35 @@ export function TextInputPanel(){
                         onChange={(e) => setText(e.target.value)}
                         maxLength={TEXT_MAX_LENGTH}
                     />
+                    <div className="flex items-center justify-between">
+                        <Badge variant="outline" className="gap-1.5 border-dashed">
+                            <Coins className="size-3 text-chart-5"/>
+                            <span className=" text-xs">
+                                {text.length === 0 ? (
+                                    "Start typing to estimate"
+                                ) : (
+                                    <>
+                                        <span className="tabular-nums">
+                                            ${(text.length * 0.0003).toFixed(4)}
+                                        </span>{"  "}
+                                        estimated
+                                    </>
+                                )}
+                            </span>
+                        </Badge>
+                        <span className="text-xs text-muted-foreground">
+                            {text.length.toLocaleString()} / {TEXT_MAX_LENGTH.toLocaleString()} characters
+                        </span>
+                    </div>
+                </div>
+                <div className="flex items-center justify-end p-3">
+                    <Button
+                        size="sm"
+                        disabled={!text.trim()}
+                        onClick={handleGenerate}
+                        className="w-full lg:w-auto">
+                            Generate Speech
+                        </Button>
                 </div>
             </div>
         </div>
