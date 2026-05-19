@@ -12,8 +12,8 @@ export default async function DahsboardLayout({
 
 return(
     <SidebarProvider defaultOpen={true} className="h-svh">
+        <DashboardSidebar/>
         <SidebarInset className="min-h-0 min-w-0">
-            <DashboardSidebar/>
             <main className="flex min-h-0 flex-1 flex-col">
                 {children}</main>
         </SidebarInset>
