@@ -38,7 +38,7 @@ export function TextToSpeechForm({
 
 const form = useAppForm({
     ...ttsFormOptions,
-    defaultValues: defaultTTSValues,
+    defaultValues: defaultValues ?? defaultTTSValues,
     validators: {
         onSubmit: ttsFormSchema,
     },
