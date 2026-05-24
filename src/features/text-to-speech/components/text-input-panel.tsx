@@ -8,14 +8,13 @@ import { useStore } from "@tanstack/react-form"
 import { useTypedAppFormContext } from "@/hooks/use-app-form"
 import { GenerateButton } from "./generate-button"
 import { ttsFormOptions } from "./text-to-speech-form"
-import { isValid } from "date-fns"
 
 export function TextInputPanel(){
     const form = useTypedAppFormContext(ttsFormOptions);
 
     const text = useStore(form.store, (s) => s.values.text);
     const isSubmitting = useStore(form.store, (s) => s.isSubmitting);
-    const isVakid = useStore(form.store, (s) => s.isValid);
+    const isValid = useStore(form.store, (s) => s.isValid);
 
     return(
         <div className="flex h-full min-h-0 flex-col flex-1">
