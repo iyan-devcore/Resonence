@@ -45,7 +45,7 @@ export const voicesRouter = createTRPCRouter({
                 }),
                 prisma.voice.findMany({
                     where:{
-                        variant: "CUSTOM",
+                        variant: "SYSTEM",
                         ...searchFilter,
                     },
                     orderBy: {createdAt: "asc"},
